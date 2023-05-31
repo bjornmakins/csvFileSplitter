@@ -14,7 +14,7 @@ def csvFileSplitter(fileName, numFiles):
     for batchRows in range(0, numLines, rowSize):
         df =  pd.read_csv(fileName, nrows = rowSize , skiprows = batchRows)
         df.columns = colHeaders 
-        output_csv = fileName + '-' + str(batchRows) + '.csv'
+        output_csv = fileName + '-' + str(batchRows)
         df.to_csv(output_csv, index=False, header=True, mode='a', chunksize = rowSize)
 
     if __name__ == '__main__':
